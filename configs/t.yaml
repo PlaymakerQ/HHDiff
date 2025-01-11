@@ -1,0 +1,49 @@
+seed: 123
+
+# data process
+is_split: true
+is_sparse: false
+with_EOS: true
+
+min_len: 1
+max_len: 500
+min_cas: 3
+max_cas: 500
+time_scale: 0.5
+split_time: 3
+
+train_rate: 0.8
+valid_rate: 0.1
+
+# train
+lr: 0.002
+batch_size: 16
+epochs: 50
+edge_ratio: 0.2
+workers: 0
+patience: 10
+
+model:
+  c: 1.0
+  n_dim: 64
+  init_emb_size: 0.001
+  n_neg: 5
+  rot_pe_steps: 1000
+  dropout: 0.3
+
+  # Hawkes
+  n_sampled_times: 10
+
+  # Time Attention
+  n_time_att_layer: 1
+  n_time_att_heads: 2
+  time_drop_out: 0.3
+
+  # hyper-parameters
+  w_L_soc_E: 1.0
+  w_L_dif_E: 1.0
+  w_L_user: 1.0
+  w_L_hawk: 0.5
+  w_L_time: 0.5
+
+  w_A_user: 0.8
